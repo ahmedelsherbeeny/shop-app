@@ -1,0 +1,38 @@
+<div class="container">
+    <div style="text-align:center">
+        <h2>Contact Us</h2>
+        <p>      <span style="font-size: 40px;"><i class="bi bi-telephone"></i> Our HotLin : 11125  </span>  </p>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="assets/images/company.webp" style="width:100%">
+        </div>
+        <div class="column">
+            <form action="/action_page.php">
+                <label for="formGroupExampleInput">Full Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="fullname" ngModel required
+                    #fullname="ngModel" minlength="15" pattern="^[A-Za-z ]+$" placeholder="Please Enter Your Name">
+                <div *ngIf="fullname.touched && fullname.invalid" class="alert alert-danger">
+                    <div *ngIf="fullname.errors?.['required']">FullName Is Required</div>
+                    <p *ngIf="fullname.errors?.['pattern']">Please Enter Valid Name</p>
+                    <p *ngIf="fullname.errors?.['minlength'] && ! fullname.errors?.['pattern'] ">Incomplete Name !</p>
+                    </div>
+
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="australia">Australia</option>
+                        <option value="canada">Canada</option>
+                        <option value="usa">USA</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="usa">USA</option>
+
+
+                    </select>
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.."
+                        style="height:170px"></textarea>
+                    <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
