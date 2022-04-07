@@ -5,13 +5,17 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './pages/menu/menu.component';
+import { YourcartComponent } from './pages/yourcart/yourcart.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"menu",component:MenuComponent},
   {path:"contact-Us",component:ContactUsComponent},
   {path:"about-Us",component:AboutUsComponent},
-  {path:"ordered/:id",component:OrderedItemComponent}
+  {path:"ordered-item",component:OrderedItemComponent},
+  {path:"yourcart",component:YourcartComponent},
+
+
 
 ];
 

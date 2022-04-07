@@ -11,7 +11,13 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { OrderedItemComponent } from './ordered-item/ordered-item.component';
 import { FormsModule } from '@angular/forms';
-import { CustomFormsModule } from 'ng2-validation'
+import { CustomFormsModule } from 'ng2-validation';
+import { CangeDirective } from './cange.directive'
+import { HttpClientModule } from '@angular/common/http';
+import { YourcartComponent } from './pages/yourcart/yourcart.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { FilterPipe } from './filter.pipe';
+
 
 
 @NgModule({
@@ -23,13 +29,19 @@ import { CustomFormsModule } from 'ng2-validation'
     ContactUsComponent,
     AboutUsComponent,
     MenuComponent,
-    OrderedItemComponent
+    OrderedItemComponent,
+    CangeDirective,
+    YourcartComponent,
+    ProductCardComponent,
+    FilterPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CustomFormsModule
+    CustomFormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

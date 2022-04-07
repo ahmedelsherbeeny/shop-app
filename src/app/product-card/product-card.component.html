@@ -1,0 +1,70 @@
+
+    
+
+        <div class="card mt-2  col-4  " style="width: 18rem;" >
+            <img class="card-img-top mt-2" style="height: 350px;" [src]="product.image" alt="Card image cap">
+            <div class="card-body">
+
+                <h5 class="card-title"><span class="title"> Title:</span> {{product.title}}</h5>
+
+                <h5 class="card-title"><span class="title"> Price:</span> {{product.price | currency}}</h5>
+                <h5 class="card-title"><span class="title"> quantity :</span> {{quan}}</h5>
+
+
+                <h5 class="card-title" ><span class="title"> Description:</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel
+                         
+                    </p>
+
+
+
+                </h5>
+                <h5 class="card-title"> <span class="title"> Category:</span> {{product.category}}</h5>
+
+                <button *ngIf="isActivated" (click)="add()" class="btn btn-success">Buy Now <i class="bi bi-bag"></i></button>
+            </div>
+        </div>
+
+
+
+
+
+    
+    <!--
+    <ng-template #updatedquantity>
+        <div class="row ">
+          <div class="col-2">
+            <button class="btn btn-secondary " 
+             (click)="addincart()" style=" background-color: darkgray; border-color: black;">
+               + </button>
+          </div>
+          <div class="col text-center">
+            number of items in cart is:  {{getquantity()}}
+    
+          </div>
+          <div class="col-2">
+            <button class="btn btn-secondary  " 
+            (click)="removefromcart()" style=" background-color: darkgray; border-color: black;">
+            - </button>
+    
+          </div>
+    
+    
+        </div>
+        
+               
+              
+    
+    
+    
+    
+      </ng-template>
+      -->
+    
+
+
+
+
+
+

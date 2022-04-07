@@ -1,0 +1,29 @@
+.card{
+    margin: 10px;
+    border-color: black;
+    margin-left: 30px;
+    margin-bottom: 125px;
+    
+}
+.title{
+    color: green
+}
+img{
+    height: 150px;
+}
+
+img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+
+
+#more {display: none;}
+
+img{
+    height: 120px;
+}
+
+
+

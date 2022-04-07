@@ -1,13 +1,4 @@
-.card{
-    margin: 10px;
-    border-color: black;
-    margin-left: 50px;
-}
-span{
-    color: green
-}
 .list-group{
     width: 120px;
-    margin: 20px;
+    margin-right: 40px;
 }
-

@@ -1,58 +1,57 @@
 
+
 <div class="row">
-    <div class="col-3">
-        <div class="list-group mr-3 ml-3 mr-lg-5 " > 
-            <button routerLink="/menu"  class="list-group-item list-group-item-action active" [class.active]="!category" >
-              All Categories
-            </button>
-            <div *ngFor="let cat of categories; ">
-    
-                <button type="button" class="list-group-item list-group-item-action"
-                 routerLink="/menu" [queryParams]="{category: cat.name}" [class.active]="category==cat.name" >{{cat.name}}
-                 
+    <div class="col-2">
+        <div  style="top: 100px; position: fixed; " >
+
+            <div class="list-group">
+                <a class="list-group-item  list-group-item-action" 
                 
-                </button>
-    
-    
-            </div>
-           
-          </div>
+                 routerLink="/menu" (click)="filtercat('')"> All Categories</a>
+                 <a class="list-group-item  list-group-item-action" 
+                
+                 routerLink="/menu" (click)="filtercat('fashion')"> Fashion</a>
+                 <a class="list-group-item  list-group-item-action" 
+                
+                  routerLink="/menu" (click)="filtercat('electronics')"> Electronics</a>
+                  <a class="list-group-item  list-group-item-action" 
+                  
+                   routerLink="/menu" (click)="filtercat('jewelery')"> Jewellery</a>
 
-    </div>
-    
-    <div class="col-7">
-        <div class="row">
-            <div class="card mt-2 mb-2 col-4  " style="width: 18rem;" *ngFor="let prod of filteredprods ">
-                <img class="card-img-top mt-2" style="height: 350px;" [src]="prod.imageUrl" alt="Card image cap">
-                <div class="card-body">
-    
-                    <h5 class="card-title"><span> Name:</span> {{prod.name}}</h5>
-                    <h5 class="card-title"><span> Price:</span> {{prod.price | currency}}</h5>
-    
-                    <h5 class="card-title"><span> Material:</span> {{prod.material}}</h5>
-                    <h5 class="card-title"> <span> Details:</span>  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                         Inventore voluptas quidem natus laudantium eaque libero repellat aspernatur
-                         ipsa recusandae voluptatibus ea, placeat a, odio suscipit. Fugiat animi vel iste aliquam. </p></h5>
-    
-    
-    
-                    <a [routerLink]="['/ordered',prod.id]"  class="btn btn-success">Buy Now <i class="bi bi-bag"></i></a>
-                </div>
-            </div>
 
+            
+              
+            
+            
+            </div>
         </div>
+        
 
         
+
+    </div>
+    <div class="col-9" style="margin-left: 100px;">
+
+        <div class="row">
+            
+            <ng-container id="cardcon" *ngFor="let product of filteredprods | filter:searchkey:'title' ; let i=index">
+                <div class="col">
+                <product-card [product]="product" ></product-card>
+            </div>
+
+            <div *ngIf="(i+1)%2==0" class="w-70"></div>
+            </ng-container>
 
 
        
 
+        
+       
+
+        
     </div>
+    </div>
+    
+    
 
 </div>
-<ng-template #boughtitem>
-    <div>
-        <h3>Added to your cart</h3>
-    </div>
-
-</ng-template>

@@ -1,5 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { YourcartComponent } from '../pages/yourcart/yourcart.component';
+import { CartService } from '../services/cart.service';
 import { ProductsService } from '../services/products.service';
 
 @Component({
@@ -8,27 +11,33 @@ import { ProductsService } from '../services/products.service';
   styleUrls: ['./ordered-item.component.css']
 })
 export class OrderedItemComponent implements OnInit {
-  menuData:any
-orderId:any
+  total:number=0
+
+
+
     
-  constructor(private prodser:ProductsService,private acroute:ActivatedRoute) { }
+  constructor(private prodser:ProductsService,private acroute:ActivatedRoute,private cart:CartService) { }
+  
 
   ngOnInit(): void {
-    this.orderId=this.acroute.snapshot.paramMap.get('id')
+    this.cart.Gtotal.subscribe((a:any)=>{
+      this.total=a
+
+    })
+    
       
-      if(this.orderId){
-        this.menuData=this.prodser.products.filter((p)=>{
-          return p.id==this.orderId
-        })
+      
       }
+      
     
 
     
   }
   
   
+  
 
-}
+
  
 
 

@@ -1,7 +1,7 @@
 .footer{
     background-color: black;
-    overflow: hidden;
-    position: relative;
+    overflow: fixed;
+    position: fixed;
     padding: 0px 10px;
     bottom: 0px;
     

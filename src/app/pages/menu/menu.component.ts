@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -9,23 +9,42 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  products:any
-categories:any
+  products:any=[]
 category:any
 filteredprods:any[]=[]
-menuData:any
-orderId:any
-  constructor(private prodser:ProductsService,private acroute:ActivatedRoute) { }
+
+
+active=true
+searchkey:any
+categories:any
+
+  constructor(private prodser:ProductsService,private cart:CartService,private acroute:ActivatedRoute) { }
+ 
+
+ 
   
 
   ngOnInit(): void {
-    this.products=this.prodser.products
-    this.categories=this.prodser.categories
-    this.acroute.queryParamMap.subscribe(params=>{
-      this.category=params.get('category')
-      this.filteredprods=this.category? this.prodser.products.filter(p=> p.name===this.category):this.products
+    this.prodser.getproduct().subscribe(prods=>{
+      this.products=prods
+      this.filteredprods=this.products
 
+
+      this.products.forEach((a:any)=>{
+        if(a.category==="men's clothing" || a.category==="women's clothing"){
+          a.category="fashion"
+        }
+        Object.assign(a,{quantity:1,total:a.price})
+        
+        
+      })
+     
     })
+    this.cart.searchkey.subscribe((a:any)=>{
+      this.searchkey=a
+    })
+    
+    
     
 
     
@@ -34,6 +53,28 @@ orderId:any
 
 
   }
+  filtercat(category:any){
+    this.filteredprods=this.products.filter((a:any)=>{
+      if(a.category===category || category===""){
+        return a
+      }
+    })
+
+  }
+
+  add(item:any){
+
+    this.cart.addToCart(item)
+    
+    
+
+  }
+  
+   
+
+  
+  
+
   
   
   
